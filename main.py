@@ -24,10 +24,6 @@ target_venue = "60109"
 #Not really useful since you have a venue, but
 zipcode = "H2T%203B2"
 
-#PHPSessid
-#So far I didn't play with the php session. Need to request this automatically
-sess_id='ef30b3fa82ad9712ad3bb54bdaa79eb8'
-
 ####################
 # CONFIGURATION
 ####################
@@ -39,6 +35,7 @@ def notify(title, text):
 
 
 def clicSante():
+
     objective = (datetime.strptime(target_date, '%Y-%m-%d')).date()
     headers = {
         'Accept': 'application/json, text/plain, */*',
@@ -54,9 +51,7 @@ def clicSante():
         'PRODUCT': 'clicsante',
     }
     cookies = {
-        'privacyConsent': '1',
-        'PHPSESSID': sess_id,
-    }
+        'privacyConsent': '1'}
     params = (
         ('dateStart', '2021-05-12'),
         ('dateStop', '2021-05-30'),
