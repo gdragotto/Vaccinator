@@ -10,7 +10,7 @@ This script simply performs a bunch of requests to ClicSante (the Quebec website
 - _ZIP Code_: This is not very useful, but somehow the api requires it. So far there is a placeholder with a Montreal/Mile-End postcode.
 - _Request Interval_: trhough the parameter *request_interval*. The interval at which queries should be sent. 
 
-##Running
+## Running
 Just download the script and run:
 ```python
 python main.py
