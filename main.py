@@ -11,9 +11,10 @@ import time
 #The time between different requests
 request_interval = 5
 
-#What is the latest date you'd want to get an appointment?
+#What is the date range you wanna look for?
 #Format: Y-M-D
-target_date = "2021-05-20"
+target_date_start = "2021-05-13"
+target_date_end = "2021-05-18"
 
 #Vaccination venue
 #You can get this from the ClicSante website (in the URL)
@@ -36,7 +37,7 @@ def notify(title, text):
 
 def clicSante():
 
-    objective = (datetime.strptime(target_date, '%Y-%m-%d')).date()
+    objective = (datetime.strptime(target_date_start, '%Y-%m-%d')).date()
     headers = {
         'Accept': 'application/json, text/plain, */*',
         'Authorization': 'Basic cHVibGljQHRyaW1vei5jb206MTIzNDU2Nzgh',
@@ -53,8 +54,8 @@ def clicSante():
     cookies = {
         'privacyConsent': '1'}
     params = (
-        ('dateStart', '2021-05-12'),
-        ('dateStop', '2021-05-30'),
+        ('dateStart', target_date_start),
+        ('dateStop', target_date_end),
         ('service', '2612'),
         ('timezone', 'America/Toronto'),
         ('places', '2033'),
@@ -72,7 +73,7 @@ def clicSante():
         if len(data['availabilities']) >= 0:
             for element in data['availabilities']:
                 date = datetime.strptime(element, '%Y-%m-%d')
-                if date.date() < objective:
+                if date.date() <= objective:
                     notify("Found an availability", element)
                     print("\t" + element)
         else:
