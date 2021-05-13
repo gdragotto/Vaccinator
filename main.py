@@ -1,8 +1,6 @@
-import requests, json
 from datetime import datetime
-import os
-import time
-
+import os, time, requests, json
+from notifypy import Notify
 
 ####################
 # CONFIGURATION
@@ -14,7 +12,7 @@ request_interval = 5
 #What is the date range you wanna look for?
 #Format: Y-M-D
 target_date_start = "2021-05-13"
-target_date_end = "2021-05-18"
+target_date_end = "2021-06-30"
 
 #Vaccination venue
 #You can get this from the ClicSante website (in the URL)
@@ -29,10 +27,13 @@ zipcode = "H2T%203B2"
 # CONFIGURATION
 ####################
 
-def notify(title, text):
-    os.system("""
-              osascript -e 'display notification "{}" with title "{}"'
-              """.format(text, title))
+def notify(text):
+    notification = Notify()
+    notification.title = "Vaccinator"
+    notification.message = "Free spot found: "+text
+    notification.icon = 'vaccine.ico'
+
+    notification.send()
 
 
 def clicSante():
@@ -72,10 +73,8 @@ def clicSante():
         print("Request is okay")
         if len(data['availabilities']) >= 0:
             for element in data['availabilities']:
-                date = datetime.strptime(element, '%Y-%m-%d')
-                if date.date() <= objective:
-                    notify("Found an availability", element)
-                    print("\t" + element)
+                notify(element)
+                print("\t" + element)
         else:
             print("\tNo availabilities.")
     else:

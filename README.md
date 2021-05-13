@@ -11,8 +11,10 @@ This script simply performs a bunch of requests to ClicSante (the Quebec website
 - _Request Interval_: trhough the parameter *request_interval*. The interval at which queries should be sent. 
 
 ## Running
-Just download the script and run:
+
 ```python
+git clone https://github.com/gdragotto/Vaccinator/ && cd Vaccinator
+pip install requests notify-py json
 python main.py
 ```
-If you're using Mac OS, you'll get system notifications whenever there is a spot available.
+You should get a system notification with the available spots.
