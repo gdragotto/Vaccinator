@@ -1,2 +1,2 @@
 # Vaccinator
-A simple Python script to check the availability of COVID-19 vaccine appointments in Quebec
+A simple Python script to check the availability of COVID-19 vaccine appointments in Quebec. Just check the header configuration
