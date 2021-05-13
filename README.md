@@ -1,6 +1,6 @@
 # Vaccinator
 A simple Python script to check the availability of COVID-19 vaccine appointments in Quebec. 
-![](aruda.gif)
+![](aruda.gif | witdh=150)
 
 ## Overview
 This script simply performs a bunch of requests to ClicSante (the Quebec website for vaccination appointments) and tries to check the availability of a spot matching the following requirements:
