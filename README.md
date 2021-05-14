@@ -14,7 +14,7 @@ This script simply performs a bunch of requests to ClicSante (the Quebec website
 
 ```python
 git clone https://github.com/gdragotto/Vaccinator/ && cd Vaccinator
-pip install requests notify-py json
+pip install requests notify-py
 python main.py
 ```
 You should get a system notification with the available spots.
