@@ -14,8 +14,8 @@ request_interval = 5
 
 # What is the date range you wanna look for?
 # Format: Y-M-D
-target_date_start = "2021-05-14"
-target_date_end = "2021-05-16"
+target_date_start = "2021-06-16"
+target_date_end = "2021-06-18"
 
 # Vaccination venue
 # You can get this from the ClicSante website (in the URL)
@@ -25,6 +25,12 @@ target_venue = "60109"
 # Postal code
 # Not really useful since you have a venue, but
 zipcode = "H2T%203B2"
+
+# Service
+# First dose
+# service = 2612
+# Change Vaccination proof data
+service = 7562
 
 
 ####################
@@ -62,7 +68,7 @@ def clicSante():
     params = (
         ('dateStart', target_date_start),
         ('dateStop', target_date_end),
-        ('service', '2612'),
+        ('service', service),
         ('timezone', 'America/Toronto'),
         ('places', '2033'),
         ('filter1', '1'),
